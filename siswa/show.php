@@ -1,5 +1,5 @@
  <?php 
-include '../database.php';
+include 'database.php';
 $siswa = new Siswa();
 ?>
 

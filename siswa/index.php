@@ -1,5 +1,5 @@
 <?php
-include '../database.php';
+include 'database.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@ include '../database.php';
             <td><?= $data['alamat']; ?></td>
             <td><a href="show.php?id=<?= $data['id']; ?>&aksi=show">Show</a></td>
             <td><a href="edit.php?id=<?= $data['id']; ?>&aksi=edit">Edit</a></td>
-            <td><a href="proses.php?id=<?= $data['id']; ?>&aksi=delete">Delete</a></td>
+            <td><a href="proses.php?id=<?= $data['id']; ?>&aksi=delete" onclick="return confirm('Apakah Yakin Mau Menghapus?')">Delete</a></td>
         </tr>
         <?php } ?>
     </table>
