@@ -1,5 +1,6 @@
 <?php
 include 'database.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +8,9 @@ include 'database.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+    
     <title>CRUD - Read</title>
 </head>
 <body>
@@ -34,8 +37,11 @@ include 'database.php';
             <div class="card">
                 <div class="card-header">Data</div>
                 <div class="card-body">
-                    <table class="table">
-                        <tr>
+                    <div class="table-responsive">
+
+                    <table class="table" id="tabble">
+                        <thead class="thead-lightfserazzzz">
+                         <tr>
                             <th>No</th>
                             <th>Nama</th>
                             <th>Alamat</th>
@@ -45,12 +51,15 @@ include 'database.php';
                             <th>Umur</th>
                             <th>Aksi</th>
                         </tr>
+                        </thead>
+                       
+                        <tbody>
                         <?php
                             $biodata = new Biodata();
                             $no = 1;
                             foreach($biodata->index() as $data){
                         ?>
-                        <tr>
+                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= $data['nama']; ?></td>
                             <td><?= $data['alamat']; ?></td>
@@ -58,12 +67,15 @@ include 'database.php';
                             <td><?= $data['jenis_kelamin']; ?></td>
                             <td><?= $data['agama']; ?></td>
                             <td><?= $data['umur']; ?></td>
-                            <td><a href="show.php?id=<?= $data['id']; ?>&aksi=show"><button class="btn btn-primary">Show</button></a></td>
-                            <td><a href="edit.php?id=<?= $data['id']; ?>&aksi=edit"><button class="btn btn-success">Edit</button></a></td>
-                            <td><a href="proses.php?id=<?= $data['id']; ?>&aksi=delete" onclick="return confirm('Apakah Yakin Mau Menghapus?')"><button class="btn btn-danger">Delete</button></a></td>
+                            <td><a href="show.php?id=<?= $data['id']; ?>&aksi=show"><button class="btn btn-primary">Show</button></a> |
+                            <a href="edit.php?id=<?= $data['id']; ?>&aksi=edit"><button class="btn btn-success">Edit</button></a> |
+                            <a href="proses.php?id=<?= $data['id']; ?>&aksi=delete" onclick="return confirm('Apakah Yakin Mau Menghapus?')"><button class="btn btn-danger">Delete</button></a></td>
                         </tr>
+                       
                         <?php } ?>
+                        </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,8 +83,14 @@ include 'database.php';
 </div>
 
 
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/js/bootstrap.bundle.js"></script>
-<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery-3.3.1.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script>$(document).ready( function () {
+    $('#tabble').DataTable();
+} );</script> 
 </body>
 </html>

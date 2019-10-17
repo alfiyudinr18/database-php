@@ -16,13 +16,14 @@ class Database{
 
     }
 }
+
 class Biodata extends Database{
     public function index(){
         $databio = mysqli_query($this->koneksi,"select * from biodata");
         return $databio;
     }
     public function create($nama, $alamat, $tgl_lahir, $jenis_kelamin, $agama, $umur){
-        mysqli_query($this->koneksi,"insert into biodata values('','$nama','$alamat',
+        mysqli_query($this->koneksi,"insert into biodata values(null,'$nama','$alamat',
         '$tgl_lahir', '$jenis_kelamin', '$agama', '$umur')");
     }
     public function show($id){

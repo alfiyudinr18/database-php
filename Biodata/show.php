@@ -44,6 +44,8 @@ $biodata = new Biodata();
                         $tgl_lahir = $data['tgl_lahir'];
                         $jenis_kelamin = $data['jenis_kelamin'];
                         $agama = $data['agama'];
+                        $tgl = date('Y', strtotime($tgl_lahir));
+                        $umur = date('Y') - $tgl;
                     }
                 ?>
                     <div class="form-group">
@@ -80,7 +82,16 @@ $biodata = new Biodata();
                         <?php } ?>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="">Umur</label>
+                        <input type="number" value="<?= $umur; ?>" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <a href="index.php"><input type="submit" value="Kembali" class="btn btn-primary"></a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

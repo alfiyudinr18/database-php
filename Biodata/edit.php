@@ -62,6 +62,15 @@ $biodata = new Biodata();
                                 <input type="date" name="tgl_lahir" value="<?= $tgl_lahir; ?>" class="form-control">
                             </div>
                             <div class="form-group">
+                                <label for="">Agama</label>
+                                <select name="agama" value="<?= $agama; ?>" class="form-control">
+                                    <option value="Islam" <?php if($agama == "Islam"){?>selected <?php } ?>>Islam</option>
+                                    <option value="Kristen" <?php if($agama == "Kristen"){?>selected <?php } ?>>Kristen</option>
+                                    <option value="Budha" <?php if($agama == "Budha"){?>selected <?php } ?>>Budha</option>
+                                    <option value="Hindu" <?php if($agama == "Hindu"){?>selected <?php } ?>>Hindu</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="">Jenis Kelamin</label><br>
                                 <div class="form-check-inline form-control">
                                     <label class="form-check-label">
@@ -73,20 +82,12 @@ $biodata = new Biodata();
                                         <input type="radio" name="jenis_kelamin" value="Perempuan" <?php if($jenis_kelamin == "Perempuan"){?>checked <?php } ?>>Perempuan<br>
                                     </label>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Agama</label>
-                                <select name="agama" value="<?= $agama; ?>" class="form-control">
-                                    <option value="Islam" <?php if($agama == "Islam"){?>selected <?php } ?>>Islam</option>
-                                    <option value="Kristen" <?php if($agama == "Kristen"){?>selected <?php } ?>>Kristen</option>
-                                    <option value="Budha" <?php if($agama == "Budha"){?>selected <?php } ?>>Budha</option>
-                                    <option value="Hindu" <?php if($agama == "Hindu"){?>selected <?php } ?>>Hindu</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                    
-                            <div class="form-group">
-                                <input type="submit" name="save" value="Update" class="btn btn-primary">
+                                <div class="form-group">
+                                    <div class="row justify-content-center">
+                                        <input type="submit" name="save" value="Update" class="btn btn-primary">
+                                        <a href="index.php"><input type="submit" value="Kembali" class="btn btn-success"></a>
+                                    </div>
+                                </div>
                             </div>
                     </form>
                 </div>
